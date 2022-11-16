@@ -36,5 +36,10 @@ public class HelloWorld {
 //        x /=y;
 //        y = y - x;
 //        y -= x;
+
+        String name = "codeup";
+        System.out.printf("Hello there, %s. Nice to see you.%n", name);
+        System.out.printf("Hello there, %s. Nice to see you.", name);
+        System.out.printf("Hello there, %s. Nice to see you.%n", name);
     }
 }
