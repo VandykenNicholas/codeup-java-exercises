@@ -3,11 +3,15 @@ import java.util.Scanner;
 
 public class MethodsExercises {
     public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 //        System.out.print("Enter a number between 1 and 10: ");
 //        int userInput = scanner.nextInt();
 //
-        startRolling();
+        System.out.println("Want to play a game? \"Y/N\"");
+        String answer = scanner.nextLine();
+        if (Objects.equals(answer, "y")){
+            startRolling();
+        }
 //        factorial();
 //        Addition(5,6);
 //        Subtration(7,8);
@@ -52,6 +56,15 @@ public class MethodsExercises {
 //        }
 //    }
     public static void startRolling(){
+        Scanner scanner = new Scanner(System.in);
+       System.out.println("How many sides to the dice you want to roll?");
+       int sides = Integer.parseInt(scanner.nextLine());
+       roll(sides);
+        System.out.println("Do you want to play again?");
+        String playAgain = scanner.next();
+        if (Objects.equals(playAgain, "y")){
+            startRolling();
+        }
 
     }
 
