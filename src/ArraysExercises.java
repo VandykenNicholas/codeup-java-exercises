@@ -34,4 +34,5 @@ public class ArraysExercises {
         addedArr[arr.length - 1] = newPerson;
         return addedArr;
     }
+
 }
