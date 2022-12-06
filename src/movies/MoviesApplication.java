@@ -58,10 +58,16 @@ public class MoviesApplication {
     }
 
     private static void printMoviesByCategory(String category) {
+        System.out.println("-------------------------");
         for(Movie movie: movies) {
-            if(movie.getCategory().equals(category) || category.equals("all")) {
+            if(movie.getCategory().equals(category)) {
+                String temp = movie.getName();
+                System.out.println("\" " + temp + " \"");
+            }
+            if (category.equals("all")){
                 System.out.println(movie);
             }
         }
+        System.out.println("-------------------------");
     }
 }
