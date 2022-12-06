@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Input {
-        private Scanner scanner = new Scanner(System.in);
+        private static Scanner scanner = new Scanner(System.in);
         public String getString(){
             return scanner.nextLine();
         }
@@ -14,7 +14,7 @@ public class Input {
             String answer = scanner.nextLine().toLowerCase();
             return Objects.equals(answer, "y") || Objects.equals(answer, "yes");
         }
-        public int getInt(int min, int max){
+        public static int getInt(int min, int max){
             int answer = 0;
             boolean isValid = false;
             System.out.println(" Please enter a number between " + min+ " and " + max);
