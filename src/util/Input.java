@@ -5,11 +5,18 @@ import java.util.Scanner;
 
 public class Input {
         private static Scanner scanner = new Scanner(System.in);
-        public String getString(){
+        public static String getString(){
             return scanner.nextLine();
         }
 
-        public boolean yesNo(){
+
+        public static boolean alternateMenu(String answer){
+            System.out.println( "Enter: \""+answer + "\" to see available options.");
+            String response = scanner.nextLine();
+            return Objects.equals(response, answer);
+        }
+
+        public static boolean yesNo(){
             System.out.println(" Please enter yes or no: ( Y / N )");
             String answer = scanner.nextLine().toLowerCase();
             return Objects.equals(answer, "y") || Objects.equals(answer, "yes");
