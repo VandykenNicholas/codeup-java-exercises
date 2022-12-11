@@ -60,32 +60,34 @@ public class GradesApplication {
         System.out.println("Please enter the desired github user.");
         System.out.println("Or enter \" Options \" if you want to see available users on file and other commands.");
         String answer = Input.getString();
-        if(Objects.equals(answer.toLowerCase(), "options")){
-            printKeys(entry);
-            System.out.println("- Class_Average");
-            System.out.println("---- Exit ----");
-            startApp(entry);
-        }
-        else if (Objects.equals(answer.toLowerCase(), "class_average")){
-            System.out.println(classAverage(entry));
-            startApp(entry);
-        }
-        else if (Objects.equals(answer.toLowerCase(), "exit")){
-            System.out.println("Thank you for using Your Grading App!");
-        }
-        else{
-            if (entry.containsKey(answer)){
-                System.out.println("Name: " + entry.get(answer).getName() + "\n Current Grades are: " +entry.get(answer).showGrades() + "\n Grade average is: " + entry.get(answer).getGradeAverage());
-                System.out.println("Do you want to look at something else?");
-                if(Input.yesNo()){startApp(entry);}
-                else{
-                    System.out.println("Thank you for using Your Grading App!");
-                }
-            }
-            else{
-                System.out.println("Not a valid entry. Please try again");
+        switch (answer.toLowerCase()) {
+            case "options":
+                printKeys(entry);
+                System.out.println("- Class_Average");
+                System.out.println("---- Exit ----");
                 startApp(entry);
-            }
+                break;
+            case "class_average":
+                System.out.println(classAverage(entry));
+                startApp(entry);
+                break;
+            case "exit":
+                System.out.println("Thank you for using Your Grading App!");
+                break;
+            default:
+                if (entry.containsKey(answer)) {
+                    System.out.println("Name: " + entry.get(answer).getName() + "\n Current Grades are: " + entry.get(answer).showGrades() + "\n Grade average is: " + entry.get(answer).getGradeAverage());
+                    System.out.println("Do you want to look at something else?");
+                    if (Input.yesNo()) {
+                        startApp(entry);
+                    } else {
+                        System.out.println("Thank you for using Your Grading App!");
+                    }
+                } else {
+                    System.out.println("Not a valid entry. Please try again");
+                    startApp(entry);
+                }
+                break;
         }
 
     }
