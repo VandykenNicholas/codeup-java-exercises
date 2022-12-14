@@ -48,7 +48,7 @@ public class Input {
             return answer;
         }
 
-    public int getInt(){
+    public static int getInt(){
         int answer = 0;
         boolean isValid = false;
         System.out.println(" Please enter a number:");
