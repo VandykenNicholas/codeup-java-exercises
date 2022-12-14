@@ -3,6 +3,7 @@ package GroceryListApp;
 // TODO: hashmap
 // TODO: keys are the grocery types
 // TODO: keys contain array lists
+// TODO: stage 3, and add a string combine with an int for array push for quanity
 
 import grades.Student;
 import util.Input;
@@ -12,9 +13,6 @@ import java.util.*;
 public class groceryApp {
         static HashMap<String, HashMap<String, ArrayList<String>>> yourLists = new HashMap<>();
         static boolean firstLoad = true;
-
-
-    // TODO: add logic for stage 3
 
     public static void main(String[] args) {
         if (firstLoad){
@@ -77,7 +75,7 @@ public class groceryApp {
     }
 
     public static void stageTwo(String list){
-        System.out.println();
+
         System.out.println("These are the current categories you have in the list");
         System.out.println("---------------------");
         viewCatagorys(list);
@@ -120,7 +118,39 @@ public class groceryApp {
     }
 
     public static void stageThree(String list, String catagory){
-
+        System.out.println("These are the current items you have in the list");
+        System.out.println("---------------------");
+        viewItems(list, catagory);
+        System.out.println("---------------------");
+        System.out.println("Type \"Add\" or \"Delete\" to modify or type \"Back\" to go back to category's");
+        String answer = Input.getString().toLowerCase();
+        if (answer.equals("add")){
+            System.out.println("What would you like to add?");
+            String newItem = Input.getString().toLowerCase();
+            System.out.println("how many?");
+            String many = String.valueOf(Input.getInt());
+            String combined = many + " - " + newItem;
+            addItem(list, catagory, combined);
+            stageThree(list, catagory);
+        }
+        else if (answer.equals("back")){
+            stageTwo(list);
+        }
+        else if (answer.equals("delete")){
+            System.out.println("Which item would you like to delete?");
+            String deleteAnswer = Input.getString().toLowerCase();
+            while (!yourLists.get(list).get(catagory).contains(deleteAnswer)){
+                System.out.println("Invalid entry please try again");
+                deleteAnswer = Input.getString().toLowerCase();
+            }
+            if(Input.yesNo()){
+                removeItem(list, catagory, deleteAnswer);
+                stageThree(list, catagory);
+            }
+            else{
+                stageThree(list, catagory);
+            }
+        }
     }
 
 
@@ -132,7 +162,7 @@ public class groceryApp {
         yourLists.get(list).put(input, new ArrayList<>());
     }
 
-    public void addItem(String list, String catagory, String item){
+    public static void addItem(String list, String catagory, String item){
         yourLists.get(list).get(catagory).add(item);
     }
 
@@ -144,7 +174,7 @@ public class groceryApp {
         yourLists.get(list).remove(input);
     }
 
-    public void removeItem(String list, String catagory, String item){
+    public static void removeItem(String list, String catagory, String item){
         int temp = yourLists.get(list).get(catagory).lastIndexOf(item);
         yourLists.get(list).get(catagory).remove(temp);
     }
@@ -161,7 +191,7 @@ public class groceryApp {
         }
     }
 
-    public void viewItems(String list, String catagory){
+    public static void viewItems(String list, String catagory){
         ArrayList<String> temp = yourLists.get(list).get(catagory);
         Object [] array = temp.toArray();
         for (Object s : array) {
