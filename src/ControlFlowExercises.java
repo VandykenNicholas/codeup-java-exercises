@@ -54,62 +54,62 @@ public class ControlFlowExercises {
 //                System.out.println("Buzz");
 //            }
 //        }
-//        System.out.println("How many rows should we go?");
-//        int rows = Integer.parseInt(scanner.nextLine());
-//        int controller = rows;
-//        System.out.println("Here is the table!");
-//        System.out.printf("%n Number | Squared | Cubed %n ------ | ------- | ----- ");
-//        for (int i = 1; i <= rows; i++){
-//            System.out.printf("%n %d      | %d        | %d     %n", i, i*i, i*i*i);
-//            if (i == rows){
-//                controller = i + 1;
-//            }
-//        }
-//        System.out.println("Would you like to continue? Enter \"y\" ");
-//        String more = scanner.nextLine();
-//        while (Objects.equals(more, "y")){
-//            for (int i = controller; i <= controller + (rows -1) ; i++){
-//                System.out.printf("%n %d      | %d        | %d     %n", i, i*i, i*i*i);
-//                if (i == controller + (rows - 1)){
-//                    controller = i + 1;
-//                    break;
-//                }
-//            }
-//            System.out.println("Would you like to continue? Enter \"y\" ");
-//            more = scanner.nextLine();
-//        }
-//        System.out.println("Come back if you want some more");
-        boolean more = true;
-        String result = "";
-        int grade = 0;
-        do {
-            System.out.println("Input the grade to be reported");
-            grade  = Integer.parseInt(scanner.nextLine());
-            if (grade >= 90){
-                result = "A";
+        System.out.println("How many rows should we go?");
+        int rows = Integer.parseInt(scanner.nextLine());
+        int controller = rows;
+        System.out.println("Here is the table!");
+        System.out.printf("%n Number | Squared | Cubed %n ------ | ------- | ----- ");
+        for (int i = 1; i <= rows; i++){
+            System.out.printf("%n%-8d|%-9d| %-5d", i, i*i, i*i*i);
+            if (i == rows){
+                controller = i + 1;
             }
-            else if (grade >= 80 && grade < 90){
-                result = "B";
-            }
-            else if (grade >= 70 && grade < 80){
-                result = "C";
-            }
-            else if (grade >= 60 && grade < 70){
-                result = "D";
-            }
-            else {
-                result = "F";
-            }
-            System.out.printf("The grade inputted is %s %n", result);
-            System.out.println("Do you want to continue?");
-            String moreGrades = scanner.nextLine();
-            if (!Objects.equals(moreGrades, "y")){
-                more = false;
-            }
-
         }
-        while (more);
-        System.out.println("Thank you for using the reporting system, Goodbye");
+        System.out.println("\nWould you like to continue? Enter \"y\" ");
+        String more = scanner.nextLine();
+        while (Objects.equals(more, "y")){
+            for (int i = controller; i <= controller + (rows -1) ; i++){
+                System.out.printf("%n%-8d|%-9d| %-5d", i, i*i, i*i*i);
+                if (i == controller + (rows - 1)){
+                    controller = i + 1;
+                    break;
+                }
+            }
+            System.out.println("\nWould you like to continue? Enter \"y\" ");
+            more = scanner.nextLine();
+        }
+        System.out.println("Come back if you want some more");
+//        boolean more = true;
+//        String result = "";
+//        int grade = 0;
+//        do {
+//            System.out.println("Input the grade to be reported");
+//            grade  = Integer.parseInt(scanner.nextLine());
+//            if (grade >= 90){
+//                result = "A";
+//            }
+//            else if (grade >= 80 && grade < 90){
+//                result = "B";
+//            }
+//            else if (grade >= 70 && grade < 80){
+//                result = "C";
+//            }
+//            else if (grade >= 60 && grade < 70){
+//                result = "D";
+//            }
+//            else {
+//                result = "F";
+//            }
+//            System.out.printf("The grade inputted is %s %n", result);
+//            System.out.println("Do you want to continue?");
+//            String moreGrades = scanner.nextLine();
+//            if (!Objects.equals(moreGrades, "y")){
+//                more = false;
+//            }
+//
+//        }
+//        while (more);
+//        System.out.println("Thank you for using the reporting system, Goodbye");
 
         }
 
